@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Academic Decision Support Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <div class="bg-layer"></div>
+  <header class="topbar">
+    <div class="brand">EDU INSIGHT HUB</div>
+    <div class="session-area" id="sessionArea"></div>
+  </header>
+
+  <main class="container">
+    <section class="panel auth-panel" id="authPanel">
+      <h1>Institutional Analytics Console</h1>
+      <p>Sign in under your university with staff email or student matric number.</p>
+      <form id="loginForm" class="grid-form">
+        <label>
+          University
+          <select id="universityId" required>
+            <option value="">Select university</option>
+          </select>
+        </label>
+        <label>
+          Identifier
+          <input id="identifier" type="text" placeholder="admin@university.edu or CSC/2022/101" required>
+        </label>
+        <label>
+          Password
+          <input id="password" type="password" placeholder="Enter password" required>
+        </label>
+        <button id="loginBtn" type="submit">Login</button>
+      </form>
+    </section>
+
+    <section class="panel hidden dashboard-panel" id="dashboardPanel">
+      <div class="dashboard-head">
+        <h2 id="dashboardTitle">Dashboard</h2>
+        <button class="ghost-btn" id="logoutBtn" type="button">Logout</button>
+      </div>
+      <div class="actions" id="actions"></div>
+      <div class="content-grid" id="contentGrid"></div>
+    </section>
+  </main>
+
+  <div class="overlay hidden" id="loadingOverlay">
+    <div class="loader-wrap">
+      <div class="loader"></div>
+      <p>Processing request...</p>
+    </div>
+  </div>
+
+  <div class="toast hidden" id="toast"></div>
+
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
